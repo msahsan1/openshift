@@ -226,5 +226,9 @@ NAME              DISPLAY NAME      STATUS
 hello-openshift   Hello OpenShift   Active
 [mahsan@vmrocky8 crc-linux-2.29.0-amd64]$
 
+<h2> Bash Completion </h2>
+<b> [mahsan@vmrocky8 openshift]$ source <(oc completion bash) </b>
+
+
 
 </pre>
