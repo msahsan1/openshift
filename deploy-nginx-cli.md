@@ -1,3 +1,4 @@
+<pre>
 apiVersion: v1
 items:
 - apiVersion: image.openshift.io/v1
@@ -91,3 +92,5 @@ items:
     loadBalancer: {}
 kind: List
 metadata: {}
+</pre>
+
