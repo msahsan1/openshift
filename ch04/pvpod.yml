@@ -8,7 +8,7 @@ spec:
       image: nginx
       volumeMounts:
       - name: mypd
-        mountPath: "/var/wwww/html"
+        mountPath: "/data"
   volumes:
     - name: mypd
       persistentVolumeClaim:
