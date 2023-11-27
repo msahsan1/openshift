@@ -2,7 +2,7 @@
 
 <h2> Volume NFS </h2>
 
-
+<b> Persistant Volume </b>
 [mahsan@vmrocky8 Volumes]$ cat nfs-pv.yml
 apiVersion: v1
 kind: PersistentVolume
@@ -18,6 +18,7 @@ spec:
     path: /data2
     server: 192.168.0.121
     readOnly: false
+<b> Persistant Volume Claim </b>
 [mahsan@vmrocky8 Volumes]$ cat nfs-pvc.yml
 kind: PersistentVolumeClaim
 apiVersion: v1
@@ -29,6 +30,7 @@ spec:
   resources:
     requests:
       storage: 100Mi
+<b> Persistant volume pod </b>
 [mahsan@vmrocky8 Volumes]$ cat nfs-pod.yml
 kind: Pod
 apiVersion: v1
