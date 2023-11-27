@@ -62,7 +62,7 @@ spec:
 
 [mahsan@vmrocky8 Volumes]$ oc get pv
 NAME                                       CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS      CLAIM                                                 STORAGECLASS                   REASON   AGE
-nfs-pv                                     2Gi        RWX            Retain           Available                                                                                                 22m
+<b>nfs-pv                                     2Gi        RWX            Retain           Available                                                                                                 22m</b>
 pv-volume                                  2Gi        RWO            Retain           Available                                                                                                 4h19m
 pv146                                      2Gi        RWO            Recycle          Available                                                                                                 4h38m
 pvc-61bf8f9d-9a87-4ac3-86ad-6cfcfe0bee19   30Gi       RWO            Delete           Bound       myproject/pv-claim                                    crc-csi-hostpath-provisioner            4h15m
@@ -72,11 +72,11 @@ pvc-b29068af-fa3a-4e98-b33d-88b621020f0e   30Gi       RWX            Delete     
 [mahsan@vmrocky8 Volumes]$ oc get pvc
 NAME           STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS                   AGE
 146pvc         Bound    pvc-adfc5a81-3763-4b6e-86a1-d589f4cc26b8   30Gi       RWO            crc-csi-hostpath-provisioner   4h35m
-nfs-pv-claim   Bound    pvc-b29068af-fa3a-4e98-b33d-88b621020f0e   30Gi       RWX            crc-csi-hostpath-provisioner   20m
+<b>nfs-pv-claim   Bound    pvc-b29068af-fa3a-4e98-b33d-88b621020f0e   30Gi       RWX            crc-csi-hostpath-provisioner   20m</b>
 pv-claim       Bound    pvc-61bf8f9d-9a87-4ac3-86ad-6cfcfe0bee19   30Gi       RWO            crc-csi-hostpath-provisioner   12h
 [mahsan@vmrocky8 Volumes]$
 
-[mahsan@vmrocky8 Volumes]$ oc exec -it nfs-pv-pod -c nfs-client1 -- df -h  /nfsshare
+<b>[mahsan@vmrocky8 Volumes]$ oc exec -it nfs-pv-pod -c nfs-client1 -- df -h  /nfsshare </b>
 Filesystem                Size      Used Available Use% Mounted on
 /dev/vda4                30.4G     25.0G      5.4G  82% /nfsshare
 [mahsan@vmrocky8 Volumes]$ oc exec -it nfs-pv-pod -c nfs-client2 -- df -h  /nfsshare
