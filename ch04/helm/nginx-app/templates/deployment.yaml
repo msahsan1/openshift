@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: {{ .Values.appname }}
+  name:  {{ .Values.appname }}
+spec:
+  replicas: {{ .Values.ReplicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.appname }}
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: {{ .Values.appname }}
+    spec:
+      containers:
+      - image: "{{ .Values.imagename }}: {{ .Values.imageversion }}" 
+        name: {{ .Values.imagename }}
+        resources: {}
+status: {}

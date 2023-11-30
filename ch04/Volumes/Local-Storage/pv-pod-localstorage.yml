@@ -1,0 +1,54 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: myvolume
+spec:
+  storageClassName: normal
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+    - ReadWriteMany
+  hostPath:
+    path: /etc/foo
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: mypvc
+spec:
+  storageClassName: normal
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 4Gi
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: nginx01
+  name: nginx01
+spec:
+  containers:
+  - args:
+    - /bin/sh
+    - -c
+    - sleep 3600
+    image: bitnami/nginx
+    imagePullPolicy: IfNotPresent
+    name: nginx01
+    resources: {}
+    volumeMounts: #
+    - name: myvolume #
+      mountPath: /etc/foo #
+  dnsPolicy: ClusterFirst
+  restartPolicy: Never
+  volumes: #
+  - name: myvolume #
+    persistentVolumeClaim: #
+      claimName: mypvc #
+status: {}
+

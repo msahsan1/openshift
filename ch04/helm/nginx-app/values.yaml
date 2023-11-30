@@ -1,0 +1,4 @@
+appname: nginx-app
+ReplicaCount: 5
+imagename: nginx
+imageversion: latest
